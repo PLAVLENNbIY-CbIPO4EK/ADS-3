@@ -11,10 +11,12 @@ uint64_t collatzMaxValue(uint64_t num) {
     } else {
       num = 3*num + 1;
     }
+
     if (num > max) {
       max = num;
     }
   }
+
   return max;
 }
 
@@ -29,18 +31,21 @@ unsigned int collatzLen(uint64_t num) {
     }
     ++len;
   }
+
   return len;
 }
 
-unsigned int seqCollatz(unsigned int *maxlen, uint64_t lbound, uint64_t rbound) {
-  unsigned int max_len = 1;
-  unsigned int val = lbound;
+unsigned int seqCollatz(unsigned int *maxlen,
+                        uint64_t lbound,
+                        uint64_t rbound) {
+  unsigned int max_len = 0;
+  unsigned int val = static_cast<unsigned int>(lbound);
 
   for (uint64_t i = lbound; i <= rbound; ++i) {
     unsigned int len = collatzLen(i);
     if (len > max_len) {
       max_len = len;
-      val = i;
+      val = static_cast<unsigned int>(i);
     }
   }
 
