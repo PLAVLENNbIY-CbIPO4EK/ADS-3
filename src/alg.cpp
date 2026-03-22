@@ -8,16 +8,13 @@ uint64_t collatzMaxValue(uint64_t num) {
   while (num != 1) {
     if (num%2 == 0) {
       num /= 2;
-    } 
-    else {
+    } else {
       num = 3*num + 1;
     }
-
     if (num > max) {
       max = num;
     }
   }
-  
   return max;
 }
 
@@ -27,13 +24,11 @@ unsigned int collatzLen(uint64_t num) {
   while (num != 1) {
     if (num%2 == 0) {
       num /= 2;
-    } 
-    else {
+    } else {
       num = 3*num + 1;
     }
     ++len;
   }
-  
   return len;
 }
 
